@@ -19,7 +19,7 @@ export const Mutation={
             return true;
         }
     },
-    updateContacto:async(_:unknown,args:{id:string, nombre:string, telefono:string}):Promise<ContactoModelType>=>{
+    updateContact:async(_:unknown,args:{id:string, nombre:string, telefono:string}):Promise<ContactoModelType>=>{
         const {id, nombre,telefono}=args;
         const contacto=await ContactoModel.findByIdAndUpdate(
             id, 
