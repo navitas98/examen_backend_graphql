@@ -1,15 +1,19 @@
 
 import { GraphQLError } from "graphql";
 import { ContactoModel, ContactoModelType } from "../DB/Contacto.ts";
+import { GetPais } from "../API/getPaishora.ts";
 
 export const Mutation={
     addContact:async(_:unknown,args:{nombre:string, apellido:string, telefono:string}):Promise<ContactoModelType>=>{
         const {nombre,apellido,telefono}=args;
+        const is_valid=await GetPais(telefono);
+        if(is_valid.valid===false){throw GraphQLError}{"El telefono tiene un error"}
         const Contacto={
             nombre,
             apellido,
             telefono
         }
+
         const nuevoContacto=await ContactoModel.create(Contacto);
         return nuevoContacto;
     },
