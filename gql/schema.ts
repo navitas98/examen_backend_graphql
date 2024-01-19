@@ -6,7 +6,7 @@ type Contacto{
     apellido:String!
     telefono:String!
     pais:String!
-    hora_actual:String!
+    
 }
 type Query{
 test:String!
