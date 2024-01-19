@@ -1,3 +1,8 @@
+import { ContactoModelType } from "../DB/Contacto.ts";
+
 export const Contacto={
-    pais:"España"   
+    grados:(parent:ContactoModelType)=>{
+        
+        return "España";
+    }, 
 }
