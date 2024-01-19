@@ -3,7 +3,7 @@ import { GraphQLError } from "graphql";
 import { ContactoModel, ContactoModelType } from "../DB/Contacto.ts";
 
 export const Mutation={
-    nuevoContacto:async(_:unknown,args:{nombre:string, apellido:string, telefono:string}):Promise<ContactoModelType>=>{
+    addContact:async(_:unknown,args:{nombre:string, apellido:string, telefono:string}):Promise<ContactoModelType>=>{
         const {nombre,apellido,telefono}=args;
         const Contacto={
             nombre,
