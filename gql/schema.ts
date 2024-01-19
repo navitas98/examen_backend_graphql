@@ -8,9 +8,10 @@ type Contacto{
 }
 type Query{
 test:String!
+getContact(id:ID!):Contacto!
 }
 type Mutation{
     nuevoContacto(nombre:String!, apellido:String!, telefono:String!):Contacto!
+   
 }
 `
-//mandar segundo link deno deploy
