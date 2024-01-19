@@ -12,10 +12,10 @@ export const Mutation={
         const nuevoContacto=await ContactoModel.create(Contacto);
         return nuevoContacto;
     },
-   /* deleteContact:async(_:unknown,args:{id:string}):Promise<boolean>=>{
+   deleteContact:async(_:unknown,args:{id:string}):Promise<boolean>=>{
         const contacto=await ContactoModel.findByIdAndDelete(args.id);
         if(!contacto){return false}else{
             return true;
         }
-    }*/
+    }
 }
