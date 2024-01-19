@@ -1,10 +1,9 @@
-type PaisValid={
-    valid:boolean,
-    pais:string,
+type capital={
+    capital:string
    
 }
-export const GetPais=async(telefono:string):Promise<PaisValid>=>{
-    const url=`https://api.api-ninjas.com/v1/validatephone?number=${telefono}`;
+export const GetCapital=async(pais:string):Promise<capital>=>{
+    const url=`https://api.api-ninjas.com/v1/country?name=${pais}`;
     const APiKey=Deno.env.get("API_KEY");
     if (!APiKey) {
         throw new Error("Please provide a APIKEY connection string");
@@ -20,8 +19,7 @@ export const GetPais=async(telefono:string):Promise<PaisValid>=>{
     
 
     return {
-        valid:data.is_valid,
-        pais:data.country,
+       capital:data.capital
        
     }
 }
