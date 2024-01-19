@@ -2,9 +2,9 @@
 export const typeDefs = `#graphql
 type Query{
 test:String!
-hola:String!
 }
 type Mutation{
 test:String!
 }
 `
+//mandar segundo link deno deploy
