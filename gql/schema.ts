@@ -13,6 +13,6 @@ getContact(id:ID!):Contacto!
 type Mutation{
     nuevoContacto(nombre:String!, apellido:String!, telefono:String!):Contacto!
     deleteContact(id:ID!):Boolean
-   
+   updateContact(id:ID!, nombre:String,  telefono:String):Contacto!
 }
 `

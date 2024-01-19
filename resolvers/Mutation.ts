@@ -1,3 +1,4 @@
+
 import { GraphQLError } from "graphql";
 import { ContactoModel, ContactoModelType } from "../DB/Contacto.ts";
 
@@ -17,5 +18,17 @@ export const Mutation={
         if(!contacto){return false}else{
             return true;
         }
+    },
+    updateContacto:async(_:unknown,args:{id:string, nombre:string, telefono:string}):Promise<ContactoModelType>=>{
+        const {id, nombre,telefono}=args;
+        const contacto=await ContactoModel.findByIdAndUpdate(
+            id, 
+            {nombre, telefono},
+            {new:true,runValidators:true}
+        );
+        if(!contacto){
+            throw new GraphQLError(`No hemos encontrado ningun contacto con el id ${id}`,{extensions:{code:"Not found"}});            
+        }
+        return contacto;
     }
 }
